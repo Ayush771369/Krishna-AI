@@ -1,21 +1,25 @@
 import chromadb # type: ignore
-import json
+from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction # type: ignore
 
-client = chromadb.PersistentClient(path="./db")
+# Embedding function
+embedding_function = SentenceTransformerEmbeddingFunction(
+    model_name="all-MiniLM-L6-v2"
+)
 
-collection = client.get_or_create_collection("gita")
+# Load existing DB
+client = chromadb.PersistentClient(path="backend/db")
 
+# Load existing collection
+collection = client.get_collection(
+    name="gita",
+    embedding_function=embedding_function
+)
 
-def retrieve_verses(query):
+def retrieve_verses(query, n_results=3):
 
     results = collection.query(
         query_texts=[query],
-        n_results=3
+        n_results=n_results
     )
 
-    retrieved_verses = results["documents"][0]
-    retrieved_metadata = results["metadatas"][0]
-
-    context = "\n".join(retrieved_verses)
-
-    return context, retrieved_metadata
+    return results

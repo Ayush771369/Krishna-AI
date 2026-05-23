@@ -4,10 +4,6 @@ from pydantic import BaseModel # type: ignore
 from rag import retrieve_verses
 from llm import generate_response
 
-from chroma_setup import setup_chroma
-
-setup_chroma()
-
 
 
 app = FastAPI()
