@@ -1,9 +1,7 @@
 import chromadb # type: ignore
 
-# Load existing DB
 client = chromadb.PersistentClient(path="./db")
 
-# Load existing collection
 collection = client.get_collection(name="gita")
 
 def retrieve_verses(query, n_results=3):
@@ -13,4 +11,9 @@ def retrieve_verses(query, n_results=3):
         n_results=n_results
     )
 
-    return results
+    verses = results["documents"][0]
+    metadatas = results["metadatas"][0]
+
+    context = "\n".join(verses)
+
+    return context, metadatas
