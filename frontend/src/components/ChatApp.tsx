@@ -34,7 +34,7 @@ export function ChatApp() {
     setInput("");
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/chat", {
+      const res = await fetch("https://krishna-ai-production-7b0a.up.railway.app/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: trimmed }),
