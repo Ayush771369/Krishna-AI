@@ -1,0 +1,31 @@
+# =========================
+# BACKEND
+# =========================
+
+backend/.env
+backend/__pycache__/
+backend/*.pyc
+
+# ChromaDB / SQLite
+backend/db/
+
+# =========================
+# FRONTEND
+# =========================
+
+frontend/node_modules/
+frontend/dist/
+
+# =========================
+# OS / EDITOR
+# =========================
+
+.DS_Store
+Thumbs.db
+.vscode/
+
+# =========================
+# ENV FILES
+# =========================
+
+.env
