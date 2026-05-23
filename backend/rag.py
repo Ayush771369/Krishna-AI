@@ -1,7 +1,7 @@
 import chromadb # type: ignore
 
 # Load existing DB
-client = chromadb.PersistentClient(path="backend/db")
+client = chromadb.PersistentClient(path="./db")
 
 # Load existing collection
 collection = client.get_collection(name="gita")
