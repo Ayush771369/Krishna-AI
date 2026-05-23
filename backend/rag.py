@@ -3,7 +3,7 @@ import json
 
 client = chromadb.PersistentClient(path="./db")
 
-collection = client.get_collection("gita")
+collection = client.get_or_create_collection("gita")
 
 
 def retrieve_verses(query):
