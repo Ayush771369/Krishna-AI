@@ -8,6 +8,10 @@ from llm import generate_response
 
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"message": "Krishna AI Backend Running"}
+
 from fastapi.middleware.cors import CORSMiddleware # type: ignore
 
 app.add_middleware(
